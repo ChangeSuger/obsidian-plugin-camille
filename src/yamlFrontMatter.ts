@@ -4,9 +4,9 @@ import {
   parseYaml,
   stringifyYaml,
   MarkdownFileInfo,
-} from "obsidian";
+} from 'obsidian';
 
-import { getFullDate } from "./util";
+import { getFullDate } from './util';
 
 const YAML_REGEX = /^---\n(?:((?:.|\n)*?)\n)?---(?=\n|$)/;
 
@@ -24,6 +24,20 @@ function getObjectYaml (editor: Editor) {
   return stringYaml ? parseYaml(stringYaml.slice(4, -4)) : {};
 }
 
+// Replace yaml Frontmatter of current file
+function replaceYamlFrontMatter (editor: Editor, yamlSection: string, objectYaml: any) {
+  const replacement = yamlSection
+    ? `---\n${stringifyYaml(objectYaml)}---`
+    : `---\n${stringifyYaml(objectYaml)}---\n`;
+
+  const startPosition: EditorPosition = {line: 0, ch: 0};
+  const endPosition: EditorPosition = yamlSection
+    ? editor.offsetToPos(yamlSection.length)
+    : startPosition;
+
+  editor.replaceRange(replacement, startPosition, endPosition);
+}
+
 // update yaml Front-matter
 export function updateFrontMatter (editor: Editor, ctx: MarkdownFileInfo) {
   const yamlSection = getYaml(editor);
@@ -35,14 +49,5 @@ export function updateFrontMatter (editor: Editor, ctx: MarkdownFileInfo) {
     updated: getFullDate(),
   }
 
-  const replacement = yamlSection
-    ? `---\n${stringifyYaml(objectYaml)}---`
-    : `---\n${stringifyYaml(objectYaml)}---\n`;
-
-  const startPosition: EditorPosition = {line: 0, ch: 0};
-  const endPosition: EditorPosition = yamlSection
-    ? editor.offsetToPos(yamlSection.length)
-    : startPosition;
-  
-  editor.replaceRange(replacement, startPosition, endPosition);
+  replaceYamlFrontMatter(editor, yamlSection, objectYaml);
 }
