@@ -47,6 +47,7 @@ export function updateFrontMatter (editor: Editor, ctx: MarkdownFileInfo) {
     title: file?.basename,
     date: getFullDate(file?.stat.ctime),
     updated: getFullDate(),
+    author: "Camille@ChangeSuger"
   }
 
   replaceYamlFrontMatter(editor, yamlSection, objectYaml);

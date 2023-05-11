@@ -3,8 +3,8 @@
 	"name": "Camille's Plugin",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "This is a plugin personel for Obsidian. This contains some functions that use frequently by Camille",
-	"author": "ChangeSuger",
+	"description": "This is a plugin personel for Obsidian. This contains some functions that used frequently by Camille",
+	"author": "Camille@ChangeSuger",
 	"authorUrl": "https://github.com/ChangeSuger",
-	"isDesktopOnly": true
+	"isDesktopOnly": false
 }
