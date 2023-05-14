@@ -1,13 +1,8 @@
-import { Plugin } from 'obsidian';
+import { Editor, MarkdownView, Plugin } from 'obsidian';
 import { updateFrontMatter } from './yamlFrontMatter';
+import { CamillePluginSettings, CamilleSettingTab, DEFAULT_SETTINGS } from './settings';
 
-interface CamillePluginSettings {
-
-}
-
-const DEFAULT_SETTINGS: CamillePluginSettings = {
-
-}
+import { test } from './test';
 
 export default class CamillePlugin extends Plugin {
 	settings: CamillePluginSettings;
@@ -18,8 +13,18 @@ export default class CamillePlugin extends Plugin {
 		this.addCommand({
 			id: 'front-matter-update',
 			name: 'Update Front-matter',
-			editorCallback: updateFrontMatter,
+			editorCallback: (editor: Editor, view: MarkdownView) => {
+				updateFrontMatter(editor, view, this.settings);
+			},
 		});
+
+		this.addCommand({
+			id: 'test',
+			name: 'test',
+			editorCallback: test,
+		});
+
+		this.addSettingTab(new CamilleSettingTab(this.app, this));
 	}
 
 	onunload() {

@@ -3,10 +3,11 @@ import {
   EditorPosition,
   parseYaml,
   stringifyYaml,
-  MarkdownFileInfo,
+  MarkdownView,
+  moment,
 } from 'obsidian';
 
-import { getFullDate } from './util';
+import { CamillePluginSettings } from './settings';
 
 const YAML_REGEX = /^---\n(?:((?:.|\n)*?)\n)?---(?=\n|$)/;
 
@@ -39,15 +40,15 @@ function replaceYamlFrontMatter (editor: Editor, yamlSection: string, objectYaml
 }
 
 // update yaml Front-matter
-export function updateFrontMatter (editor: Editor, ctx: MarkdownFileInfo) {
+export function updateFrontMatter (editor: Editor, view: MarkdownView, settings: CamillePluginSettings) {
   const yamlSection = getYaml(editor);
-  const file = ctx.file;
+  const file = view.file;
   const objectYaml = {
     ...getObjectYaml(editor),
     title: file?.basename,
-    date: getFullDate(file?.stat.ctime),
-    updated: getFullDate(),
-    author: "Camille@ChangeSuger"
+    date: moment(file?.stat.ctime).format(settings.dateFormat),
+    updated: moment().format(settings.dateFormat),
+    author: settings.author,
   }
 
   replaceYamlFrontMatter(editor, yamlSection, objectYaml);
