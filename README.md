@@ -6,5 +6,5 @@
 
 TODO:
 
-- ~~Setting 面板~~
+- Setting 面板
 - Modal 批量编辑 YAML Front-matter

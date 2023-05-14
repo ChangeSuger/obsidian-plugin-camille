@@ -14,7 +14,7 @@ export default class CamillePlugin extends Plugin {
 			id: 'front-matter-update',
 			name: 'Update Front-matter',
 			editorCallback: (editor: Editor, view: MarkdownView) => {
-				updateFrontMatter(editor, view, this.settings);
+				updateFrontMatter(editor, view, this.settings.yamlFrontmatter);
 			},
 		});
 
