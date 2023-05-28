@@ -1,7 +1,8 @@
 {
-	"name": "obsidian-sample-plugin",
-	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"name": "obsidian-plugin-camille",
+	"private": true,
+	"version": "0.0.1",
+	"description": "This is a personel plugin for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -11,7 +12,7 @@
 		"test": "npm run build && npm run sass && test.bat"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "changesuger",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^16.11.6",

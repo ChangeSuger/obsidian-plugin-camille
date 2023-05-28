@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-plugin-camille",
 	"name": "Camille's Plugin",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "This is a plugin personel for Obsidian. This contains some functions that used frequently by Camille",
 	"author": "Camille@ChangeSuger",

@@ -1,18 +1,26 @@
-import { Editor, MarkdownView, Plugin } from 'obsidian';
+import {
+	Editor,
+	MarkdownView,
+	Plugin,
+} from 'obsidian';
+import {
+	CamillePluginSettings,
+	CamilleSettingTab,
+	DEFAULT_SETTINGS,
+} from './settings';
 import { updateFrontMatter } from './yamlFrontMatter';
-import { CamillePluginSettings, CamilleSettingTab, DEFAULT_SETTINGS } from './settings';
 
 import { test } from './test';
 
 export default class CamillePlugin extends Plugin {
 	settings: CamillePluginSettings;
 
-	async onload() {
+	async onload () {
 		await this.loadSettings();
 
 		this.addCommand({
-			id: 'front-matter-update',
-			name: 'Update Front-matter',
+			id: 'yaml-front-matter-update',
+			name: '更新 YAML Front-matter',
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				updateFrontMatter(editor, view, this.settings.yamlFrontmatter);
 			},
@@ -27,15 +35,15 @@ export default class CamillePlugin extends Plugin {
 		this.addSettingTab(new CamilleSettingTab(this.app, this));
 	}
 
-	onunload() {
+	onunload () {
 
 	}
 
-	async loadSettings() {
+	async loadSettings () {
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
 	}
 
-	async saveSettings() {
+	async saveSettings () {
 		await this.saveData(this.settings);
 	}
 }
