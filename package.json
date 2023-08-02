@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-plugin-camille",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.1.1",
 	"description": "This is a personel plugin for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
