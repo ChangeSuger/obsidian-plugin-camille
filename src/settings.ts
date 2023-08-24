@@ -76,9 +76,11 @@ export class CamilleSettingTab extends PluginSettingTab {
     if (this.plugin.settings.yamlFrontmatter.date.add) {
       new Setting(containerEl)
         .setName('Date Format')
+        .setClass('CS-sub-setting')
         .addDropdown((dropdown: DropdownComponent) =>
           dropdown
             .addOption('yyyy-MM-DD', 'yyyy-MM-DD')
+            .addOption('yyyy-MM-DD-hh:mm', 'yyyy-MM-DD-hh:mm')
             .addOption('yyyy-MM-DD-hh:mm:ss', 'yyyy-MM-DD-hh:mm:ss')
             .setValue(this.plugin.settings.yamlFrontmatter.date.dateFormat)
             .onChange(async (value) => {
@@ -105,9 +107,11 @@ export class CamilleSettingTab extends PluginSettingTab {
     if (this.plugin.settings.yamlFrontmatter.updated.add) {
       new Setting(containerEl)
         .setName('Date Format')
+        .setClass('CS-sub-setting')
         .addDropdown((dropdown: DropdownComponent) =>
           dropdown
             .addOption('yyyy-MM-DD', 'yyyy-MM-DD')
+            .addOption('yyyy-MM-DD-hh:mm', 'yyyy-MM-DD-hh:mm')
             .addOption('yyyy-MM-DD-hh-mm-ss', 'yyyy-MM-DD-hh-mm-ss')
             .setValue(this.plugin.settings.yamlFrontmatter.updated.dateFormat)
             .onChange(async (value) => {

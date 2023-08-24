@@ -31,7 +31,7 @@ function replaceYamlFrontMatter (editor: Editor, yamlSection: string, objectYaml
     ? `---\n${stringifyYaml(objectYaml)}---`
     : `---\n${stringifyYaml(objectYaml)}---\n`;
 
-  const startPosition: EditorPosition = {line: 0, ch: 0};
+  const startPosition: EditorPosition = { line: 0, ch: 0 };
   const endPosition: EditorPosition = yamlSection
     ? editor.offsetToPos(yamlSection.length)
     : startPosition;
@@ -46,7 +46,7 @@ export function updateFrontMatter (editor: Editor, view: MarkdownView, settings:
   const objectYaml = {
     ...getObjectYaml(editor),
     title: file?.basename,
-  }
+  };
 
   objectYaml.date = settings.date.add
     ? moment(file?.stat.ctime).format(settings.date.dateFormat)

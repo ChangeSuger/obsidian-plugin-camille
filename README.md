@@ -12,4 +12,3 @@ TODO:
 - Setting 面板完善
 - YAML Front-matter
   - Modal 批量编辑 YAML Front-matter
-- 代码类型列表补全

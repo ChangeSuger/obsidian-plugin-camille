@@ -17,14 +17,14 @@ import { updateFrontMatter } from './yamlFrontMatter';
 
 import { test } from './test';
 
-const codeTypeList = require('./codeTypeList.json') as string[];
+const codeLanguageList = require('./codeLanguageList.json') as string[];
 
 export default class CamillePlugin extends Plugin {
 	settings: CamillePluginSettings;
 
 	async onload () {
 		await this.loadSettings();
-		this.registerEditorSuggest(new CodeTypeSuggest(this));
+		this.registerEditorSuggest(new CodeLanguageSuggest(this));
 
 		this.addCommand({
 			id: 'yaml-front-matter-update',
@@ -56,14 +56,14 @@ export default class CamillePlugin extends Plugin {
 	}
 }
 
-class CodeTypeSuggest extends EditorSuggest<string> {
+class CodeLanguageSuggest extends EditorSuggest<string> {
 	plugins: CamillePlugin;
-	codeTypeList: string[];
+	codeLanguageList: string[];
 
 	constructor (plugins: CamillePlugin) {
 		super(plugins.app);
 		this.plugins = plugins;
-		this.codeTypeList = codeTypeList;
+		this.codeLanguageList = codeLanguageList;
 	}
 
 	onTrigger(cursor: EditorPosition, editor: Editor, _: TFile | null): EditorSuggestTriggerInfo | null {
@@ -83,23 +83,27 @@ class CodeTypeSuggest extends EditorSuggest<string> {
 	}
 
 	getSuggestions (context: EditorSuggestContext): string[] {
-		let codeTypeQuery = context.query
+		let codeLanguageQuery = context.query
 			.replace(/```/, '')
 			.toLowerCase();
-		return this.codeTypeList
-			.filter(codeType => codeType.includes(codeTypeQuery));
+		return this.codeLanguageList
+			.filter(codeLanguage => codeLanguage.includes(codeLanguageQuery));
 	}
 
 	renderSuggestion(value: string, el: HTMLElement): void {
-		const suggestions = el.createDiv({ cls: "code-type-suggester-container" });
+		const suggestions = el.createDiv({ cls: "code-language-suggester-container" });
 		suggestions
-			.createDiv({ cls: "code-type-suggester-item" })
+			.createDiv({ cls: "code-language-suggester-item" })
 			.setText(value);
 	}
 
 	selectSuggestion(value: string): void {
 		if (this.context) {
-			this.context.editor.replaceRange(`\`\`\`${value} `, this.context.start, this.context.end);
+			this.context.editor.replaceRange(
+				`\`\`\`${value} `,
+				this.context.start,
+				this.context.end
+			);
 		}
 	}
 }
