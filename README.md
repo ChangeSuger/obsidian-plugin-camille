@@ -12,3 +12,11 @@ TODO:
 - Setting 面板完善
 - YAML Front-matter
   - Modal 批量编辑 YAML Front-matter
+
+# Create a new release
+
+```bash
+git tag -a v0.0.1 -m "Release v0.0.1"
+
+git push origin --tags
+```
