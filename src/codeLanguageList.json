@@ -1,5 +1,7 @@
 [
   "bash",
+  "c",
+  "csharp",
   "css",
   "dockerfile",
   "go",
@@ -11,6 +13,7 @@
   "node",
   "php",
   "plain",
+  "powershell",
   "python",
   "react",
   "ruby",

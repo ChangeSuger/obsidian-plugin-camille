@@ -100,7 +100,7 @@ class CodeLanguageSuggest extends EditorSuggest<string> {
 	selectSuggestion(value: string): void {
 		if (this.context) {
 			this.context.editor.replaceRange(
-				`\`\`\`${value} `,
+				`\`\`\`${value} \n`,
 				this.context.start,
 				this.context.end
 			);
