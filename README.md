@@ -6,6 +6,8 @@
   - 快捷键更新 YAML Front-matter 的部分信息
 - 代码块
   - 代码类型提示
+- 复选框
+  - 快捷创建与删除（Toggle Checkbox）
 
 TODO:
 

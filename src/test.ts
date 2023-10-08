@@ -8,5 +8,5 @@ import {
 } from 'obsidian';
 
 export function test (editor: Editor, view: MarkdownView) {
-  console.log(123);
+  console.log(editor.getLine(editor.getCursor().line));
 }

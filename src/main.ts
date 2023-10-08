@@ -14,7 +14,7 @@ import {
 	DEFAULT_SETTINGS,
 } from './settings';
 import { updateFrontMatter } from './yamlFrontMatter';
-
+import { toggleCheckbox } from './toggleCheckbox';
 import { test } from './test';
 
 const codeLanguageList = require('./codeLanguageList.json') as string[];
@@ -33,6 +33,14 @@ export default class CamillePlugin extends Plugin {
 				updateFrontMatter(editor, view, this.settings.yamlFrontmatter);
 			},
 		});
+
+		this.addCommand({
+			id: 'toggle-checkbox',
+			name: "Toggle Checkbox",
+			editorCallback: (editor: Editor) => {
+				toggleCheckbox(editor);
+			},
+		})
 
 		this.addCommand({
 			id: 'test',
