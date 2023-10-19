@@ -1,12 +1,14 @@
 import {
   Editor,
-  EditorPosition,
-  parseYaml,
-  stringifyYaml,
   MarkdownView,
-  moment,
 } from 'obsidian';
 
 export function test (editor: Editor, view: MarkdownView) {
-  console.log(editor.getLine(editor.getCursor().line));
+  console.log(
+    editor.getCursor("anchor"),
+    editor.getCursor("head"),
+    editor.getCursor("from"),
+    editor.getCursor("to"),
+    editor.getCursor()
+  );
 }
