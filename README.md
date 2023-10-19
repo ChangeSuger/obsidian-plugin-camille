@@ -3,7 +3,7 @@
 这是绘开发，绘自用的 Obsidian 插件，包含绘常用的功能：
 
 - YAML Front-matter
-  - 快捷键更新 YAML Front-matter 的部分信息
+  - 快捷键更新 YAML Front-matter 的部分信息（创建日期、修改日期、作者）
 - 代码块
   - 代码类型提示
 - 复选框
@@ -12,8 +12,6 @@
 TODO:
 
 - Setting 面板完善
-- YAML Front-matter
-  - Modal 批量编辑 YAML Front-matter
 
 ## Create a new release
 
@@ -25,7 +23,7 @@ git push origin --tags
 
 ## 开发指南
 
-> Obsidian 插件的 API 基本只有类型定义，没用具体使用说明，大部分 API 需要参考已有的插件才能知道用法，想实现什么功能可以先找一个具有相似功能的插件，然后参考其源码
+> [Obsidian 的开发文档](https://docs.obsidian.md/Home)中关于 Obsidian 插件 API 的介绍基本只有类型定义，没有具体使用说明，大部分 API 需要参考已有的插件才能知道用法，想实现什么功能可以先找一个具有相似功能的插件，然后参考其源码
 
 - 可用 ICON 参考：[lucide.dev](https://lucide.dev/) 
 - 使用 `Ctrl + Shift + I` 可以打开 DevTool 进行调试

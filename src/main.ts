@@ -17,7 +17,7 @@ import { updateFrontMatter } from './yamlFrontMatter';
 import { toggleCheckbox } from './toggleCheckbox';
 import { test } from './test';
 
-const codeLanguageList = require('./codeLanguageList.json') as string[];
+import { codeLanguageList } from './codeLanguageList';
 
 export default class CamillePlugin extends Plugin {
 	settings: CamillePluginSettings;
@@ -91,7 +91,7 @@ class CodeLanguageSuggest extends EditorSuggest<string> {
 	}
 
 	getSuggestions (context: EditorSuggestContext): string[] {
-		let codeLanguageQuery = context.query
+		const codeLanguageQuery = context.query
 			.replace(/```/, '')
 			.toLowerCase();
 		return this.codeLanguageList

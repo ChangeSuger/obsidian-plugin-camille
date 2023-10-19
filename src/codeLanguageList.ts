@@ -1,4 +1,4 @@
-[
+export const codeLanguageList: string[] = [
   "bash",
   "c",
   "csharp",
@@ -8,6 +8,7 @@
   "html",
   "java",
   "javascript",
+  "js",
   "json",
   "matlab",
   "node",
@@ -21,8 +22,9 @@
   "shell",
   "sql",
   "text",
+  "ts",
   "typescript",
   "vue",
   "xml",
   "yaml"
-]
+];
