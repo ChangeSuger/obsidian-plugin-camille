@@ -15,6 +15,7 @@ import {
 } from './settings';
 import { updateFrontMatter } from './yamlFrontMatter';
 import { toggleCheckboxByLine } from './toggleCheckbox';
+import { clearLinkByLine } from './clearLink';
 import { editSection } from './util';
 import { test } from './test';
 
@@ -41,7 +42,15 @@ export default class CamillePlugin extends Plugin {
 			editorCallback: (editor: Editor) => {
 				editSection(editor, toggleCheckboxByLine);
 			},
-		})
+		});
+
+		this.addCommand({
+			id: 'clear-link',
+			name: "Clear Link",
+			editorCallback: (editor: Editor) => {
+				editSection(editor, clearLinkByLine);
+			}
+		});
 
 		this.addCommand({
 			id: 'test',
