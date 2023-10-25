@@ -14,7 +14,8 @@ import {
 	DEFAULT_SETTINGS,
 } from './settings';
 import { updateFrontMatter } from './yamlFrontMatter';
-import { toggleCheckboxs } from './toggleCheckbox';
+import { toggleCheckboxByLine } from './toggleCheckbox';
+import { editSection } from './util';
 import { test } from './test';
 
 import { codeLanguageList } from './codeLanguageList';
@@ -38,7 +39,7 @@ export default class CamillePlugin extends Plugin {
 			id: 'toggle-checkbox',
 			name: "Toggle Checkbox",
 			editorCallback: (editor: Editor) => {
-				toggleCheckboxs(editor);
+				editSection(editor, toggleCheckboxByLine);
 			},
 		})
 
