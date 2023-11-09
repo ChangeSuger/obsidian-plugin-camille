@@ -17,6 +17,7 @@ import { updateFrontMatter } from './yamlFrontMatter';
 import { toggleCheckboxByLine } from './toggleCheckbox';
 import { clearLinkByLine } from './clearLink';
 import { editSection } from './util';
+import { copyLineUpOrDown } from './vscodeShortcuts';
 import { test } from './test';
 
 import { codeLanguageList } from './codeLanguageList';
@@ -49,6 +50,22 @@ export default class CamillePlugin extends Plugin {
 			name: "Clear Link",
 			editorCallback: (editor: Editor) => {
 				editSection(editor, clearLinkByLine);
+			}
+		});
+
+		this.addCommand({
+			id: 'copy-line-up',
+			name: "Copy Line up",
+			editorCallback: (editor: Editor) => {
+				copyLineUpOrDown(editor, 'up');
+			}
+		});
+
+		this.addCommand({
+			id: 'copy-line-down',
+			name: "Copy Line Down",
+			editorCallback: (editor: Editor) => {
+				copyLineUpOrDown(editor, "down");
 			}
 		});
 

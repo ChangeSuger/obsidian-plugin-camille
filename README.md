@@ -10,6 +10,8 @@
   - 快捷创建与删除（Toggle Checkbox）
 - 链接
   - 快捷清理选中文本中各行已有的链接
+- 模拟 VSCode 编辑体验
+  - Copy Line Up/Down
 
 TODO:
 
