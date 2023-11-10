@@ -13,12 +13,12 @@ import {
 	CamilleSettingTab,
 	DEFAULT_SETTINGS,
 } from './settings';
-import { updateFrontMatter } from './yamlFrontMatter';
-import { toggleCheckboxByLine } from './toggleCheckbox';
-import { clearLinkByLine } from './clearLink';
-import { editSection } from './util';
-import { copyLineUpOrDown } from './vscodeShortcuts';
-import { test } from './test';
+import { updateFrontMatter } from './functions/yamlFrontMatter';
+import { toggleCheckboxByLine } from './functions/toggleCheckbox';
+import { clearLinkByLine } from './functions/clearLink';
+import { editSection } from './functions/util';
+import { copyLineUpOrDown } from './functions/vscodeShortcuts';
+import { test } from './functions/test';
 
 import { codeLanguageList } from './codeLanguageList';
 

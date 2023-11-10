@@ -7,7 +7,7 @@ import {
   moment,
 } from 'obsidian';
 
-import { yamlFrontmatterSettings } from './settings';
+import { yamlFrontmatterSettings } from '../settings';
 
 const YAML_REGEX = /^---\n(?:((?:.|\n)*?)\n)?---(?=\n|$)/;
 
