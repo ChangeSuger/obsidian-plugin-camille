@@ -42,5 +42,6 @@ jobs:
             ${{ env.PLUGIN_NAME }}-${{ github.ref_name }}.zip
           artifactContentType: application/zip
           allowUpdates: true
+          artifactErrorsFailBuild: true
           draft: false
           prerelease: false
