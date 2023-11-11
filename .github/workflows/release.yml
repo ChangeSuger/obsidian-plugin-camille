@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "18.x"
 
@@ -36,8 +36,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          name: ${{ github.ref }}
+          tag: ${{ github.ref_name }}
+          name: ${{ env.PLUGIN_NAME }}-${{ github.ref_name }}
           artifacts: |
             ${{ env.PLUGIN_NAME }}.zip
           artifactContentType: application/zip
