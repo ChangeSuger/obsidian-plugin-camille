@@ -29,7 +29,7 @@ jobs:
           npm run build
           mkdir ${{ env.PLUGIN_NAME }}
           cp main.js manifest.json styles.css ${{ env.PLUGIN_NAME }}
-          zip -r ${{ env.PLUGIN_NAME }}.zip ${{ env.PLUGIN_NAME }}
+          zip -r ${{ env.PLUGIN_NAME }}-${{ github.ref_name }}.zip ${{ env.PLUGIN_NAME }}
 
       - name: Create Release
         id: create_release
@@ -37,7 +37,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
-          name: ${{ env.PLUGIN_NAME }}-${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           artifacts: |
             ${{ env.PLUGIN_NAME }}.zip
           artifactContentType: application/zip
