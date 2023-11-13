@@ -19,7 +19,6 @@ const codeLanguageList: string[] = [
   "html",
   "java",
   "javascript",
-  "js",
   "json",
   "matlab",
   "node",
@@ -33,7 +32,6 @@ const codeLanguageList: string[] = [
   "shell",
   "sql",
   "text",
-  "ts",
   "typescript",
   "vue",
   "xml",
@@ -72,7 +70,7 @@ export class CodeLanguageSuggest extends EditorSuggest<string> {
 			.replace(/```/, '')
 			.toLowerCase();
 		return this.codeLanguageList
-			.filter(codeLanguage => codeLanguage.includes(codeLanguageQuery));
+			.filter(codeLanguage => includeSearchText(codeLanguageQuery, codeLanguage));
 	}
 
 	renderSuggestion(value: string, el: HTMLElement): void {
@@ -91,4 +89,18 @@ export class CodeLanguageSuggest extends EditorSuggest<string> {
 			);
 		}
 	}
+}
+
+function includeSearchText (searchText: string, text: string): boolean {
+	let _text = text;
+	const chars = searchText.split('');
+	for (const char of chars) {
+		const index = _text.indexOf(char);
+		if (index === -1) {
+			return false;
+		} else {
+			_text = _text.slice(_text.indexOf(char) + 1);
+		}
+	}
+	return true;
 }
