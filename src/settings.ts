@@ -146,7 +146,7 @@ export class CamilleSettingTab extends PluginSettingTab {
               this.plugin.settings.yamlFrontmatter.author.name = value;
               await this.plugin.saveSettings();
             })
-        )
+        );
     }
   }
 }
