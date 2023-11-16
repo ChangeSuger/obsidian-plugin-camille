@@ -19,7 +19,6 @@
 
 - Setting 面板完善
 - 优化对选中区域执行操作后选中区域自动变化逻辑（提升使用体验）
-- 重写 CI/CD 脚本
 
 ## How to use
 
@@ -37,17 +36,9 @@ npm run build
 
 然后将本项目路径下的 `main.js`、`manifest.json` 和 `styles.css` 文件复制到该文件夹中
 
-> 如果使用 Release 文件，直接将 Release 压缩包解压然后粘贴进 `.obsidian/plugins` 即可
+> 如果使用 Release 文件，直接将 Release 压缩包解压后的文件夹粘贴进 `.obsidian/plugins` 即可
 
 然后重启 Obsidian，或重新加载插件，然后在插件列表中启用该插件即可
-
-## Create a new release
-
-```bash
-git tag -a v0.0.1 -m "Release v0.0.1"
-
-git push origin --tags
-```
 
 ## 开发指南
 
@@ -61,3 +52,7 @@ git push origin --tags
 `onload()` 生命周期函数在用户激活 Obsidian 插件时触发，在插件更新时也会被触发，插件大部分功能都将在此函数中实现
 
 `onunload()` 生命周期函数在插件被禁用时触发，插件所调用的任何资源必须在这里得到释放，以防止插件被禁用后对 Obsidian 的性能产生影响
+
+## LICENSE
+
+MIT
