@@ -13,7 +13,7 @@ import { CodeLanguageSuggest } from './functions/codeLanguageSuggest';
 
 import { updateFrontMatter } from './functions/yamlFrontMatter';
 import { toggleCheckboxByLine } from './functions/toggleCheckbox';
-import { clearLinkByLine } from './functions/clearLink';
+import { clearLinkByLine, clearWhitespaceByLine } from './functions/clearLink';
 import { editSection } from './functions/util';
 import { copyLineUpOrDown } from './functions/vscodeShortcuts';
 import { test } from './functions/test';
@@ -48,6 +48,14 @@ export default class CamillePlugin extends Plugin {
 				editSection(editor, clearLinkByLine);
 			}
 		});
+
+		this.addCommand({
+			id: 'clear-whitespace',
+			name: "Clear Whitespace",
+			editorCallback: (editor: Editor) => {
+				editSection(editor, clearWhitespaceByLine);
+			}
+		})
 
 		this.addCommand({
 			id: 'copy-line-up',

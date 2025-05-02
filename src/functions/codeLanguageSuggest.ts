@@ -21,6 +21,7 @@ const codeLanguageList: string[] = [
   "javascript",
   "json",
   "matlab",
+	"mysql",
   "node",
   "php",
   "plain",
