@@ -16,6 +16,7 @@ import { toggleCheckboxByLine } from './functions/toggleCheckbox';
 import { clearLinkByLine, clearWhitespaceByLine } from './functions/clearLink';
 import { editSection } from './functions/util';
 import { copyLineUpOrDown } from './functions/vscodeShortcuts';
+import { addFurigana } from './functions/addFurigana';
 import { test } from './functions/test';
 
 export default class CamillePlugin extends Plugin {
@@ -72,6 +73,14 @@ export default class CamillePlugin extends Plugin {
 				copyLineUpOrDown(editor, "down");
 			}
 		});
+
+		this.addCommand({
+			id: 'add-furigana',
+			name: 'Add Furigana',
+			editorCallback: (editor: Editor) => {
+				addFurigana(editor, this.app);
+			},
+		})
 
 		this.addCommand({
 			id: 'test',
